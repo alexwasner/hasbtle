@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.wasner.hasbluetoothle" version="1.0.2">
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    <name>Has Bluetooth LE</name>
+    <description>Check if BTLE Exists</description>
+    <author>Alex Wasner</author>
+    <keywords>bluetooth,low energy,smart</keywords>
+    <license>Apache 2.0</license>
+    <js-module src="www/hasbluetoothle.js" name="HasBluetoothLe">
+        <clobbers target="window.hasbluetoothle" />
+    </js-module>
+    
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="HasBluetoothLePlugin">
+                <param name="android-package" value="com.wasner.hasbluetoothle.HasBluetoothLePlugin" />
+            </feature>
+        </config-file>
+        
+        <source-file src="src/android/HasBluetoothLePlugin.java" target-dir="src/com/wasner/hasbluetoothle" />
+    </platform>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="HasBluetoothLePlugin">
+                <param name="ios-package" value="HasBluetoothLePlugin" />
+            </feature>
+        </config-file>
+    </platform>
+</plugin>
